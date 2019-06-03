@@ -1,0 +1,10 @@
+.wallpaper {
+  background-image: url("./assets/images/wallpaper.jpg") !important;
+  background-size: auto 100%;
+  box-shadow: 5px 5px 5px 5px rgb(180, 180, 180);
+}
+
+#text {
+  color: white;
+  font-family: 'Cinzel', serif;
+}
