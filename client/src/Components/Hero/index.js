@@ -12,7 +12,7 @@ return(
         <h1 className="display-4" id="text">Long Lost Friends</h1>
         </div>
       </div>
-      <Search />
+      {/* <Search /> */}
     </div>
   </div>
 )

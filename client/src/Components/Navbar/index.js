@@ -70,4 +70,4 @@ function Navbar() {
   );
 }
 
-export default {Navbar, Login};
+export default Navbar;

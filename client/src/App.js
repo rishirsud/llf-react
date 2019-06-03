@@ -1,16 +1,19 @@
 import React from 'react';
-import Hero from './Components/Hero/index'
-import SearchCards from './Components/SearchCards'
-import Navbar from './Components/Navbar'
-import Search from './Components/Search'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import homePage from './pages/Home';
+import profilePage from './pages/Profile';
 
 function App() {
   return (
-    <div className="App">
-     <Navbar />
-     <Hero />
-     {/* <Search /> */}
-    </div>
+    <Router>
+      <React.Fragment>
+        <Switch>
+          <Route exact path="/" component = {homePage} />
+          <Route exact path="/profile" component = {profilePage} />
+        </Switch>
+      </React.Fragment>
+    </Router>
   );
 }
 
