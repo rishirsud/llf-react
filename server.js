@@ -7,7 +7,7 @@ var jsonwebtoken = require("jsonwebtoken")
 
 // set up app
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // set up middleware
 app.use(express.urlencoded({ extended: true }));
