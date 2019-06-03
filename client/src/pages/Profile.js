@@ -12,12 +12,13 @@ class profilePage extends Component {
 
 
   render() {
-    return(
+    return (
       <React.Fragment>
+        <Hero />
+        <ProfileCard />
 
 
 
-        
       </React.Fragment>
     )
   }

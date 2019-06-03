@@ -14,11 +14,13 @@ class homePage extends Component {
 
 
 
-  render(){
+  render() {
     return (
       <React.Fragment>
         <Navbar />
-        <Hero />
+        <Hero>
+          <Search />
+        </Hero>
       </React.Fragment>
     )
   }
