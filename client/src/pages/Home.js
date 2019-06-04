@@ -17,7 +17,7 @@ class homePage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
+        {/* <Navbar /> */}
         <Hero>
           <Search />
         </Hero>

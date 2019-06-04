@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -25,44 +26,44 @@ function Navbar() {
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">
                 Find a friend
               </a>
-            </li>{" "}
+            </li>{" "} */}
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/profile">
                 Your Profile
-              </a>
+              </Link>
             </li>
           </ul>
 
-        <span className="navbar-login">
-          <div className="d-flex">
-            <div className="dropdown mr-1">
-              <button type="button" className="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-                <i className="fas fa-sign-in-alt"></i> Login
+          <span className="navbar-login">
+            <div className="d-flex">
+              <div className="dropdown mr-1">
+                <button type="button" className="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                  <i className="fas fa-sign-in-alt"></i> Login
               </button>
-              <div id="nav-login" className="dropdown-menu">
-                <form className="px-4 py-3" id="login-form">
-                  <div className="form-group">
-                    <label htmlFor="email-input-login">Email address</label>
-                    <input type="email" className="form-control" id="email-input-login"
-                    placeholder="email@example.com" />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="password-input-login">Password</label>
-                    <input type="password" className="form-control" id="password-input-login" placeholder="Password" />
-                  </div>
-                  <button type="button" className="btn btn-primary" id="signInButton">Sign in</button>
-                </form>
-                <div className="dropdown-divider"></div>
+                <div id="nav-login" className="dropdown-menu">
+                  <form className="px-4 py-3" id="login-form">
+                    <div className="form-group">
+                      <label htmlFor="email-input-login">Email address</label>
+                      <input type="email" className="form-control" id="email-input-login"
+                        placeholder="email@example.com" />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password-input-login">Password</label>
+                      <input type="password" className="form-control" id="password-input-login" placeholder="Password" />
+                    </div>
+                    <button type="button" className="btn btn-primary" id="signInButton">Sign in</button>
+                  </form>
+                  <div className="dropdown-divider"></div>
                   <a className="dropdown-item" href="/register">New around here? Sign up</a>
                 </div>
               </div>
-          </div>
-      </span>
+            </div>
+          </span>
 
         </div>
       </nav>
