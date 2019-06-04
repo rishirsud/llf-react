@@ -1,5 +1,5 @@
 .wallpaper {
-  background-image: url("./assets/images/wallpaper.jpg") !important;
+  background-image: url("./assets/images/wallpaper.jpg");
   background-size: auto 100%;
   box-shadow: 5px 5px 5px 5px rgb(180, 180, 180);
 }

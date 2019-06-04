@@ -12,9 +12,11 @@ const PORT = process.env.PORT || 3001;
 // set up middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
 app.use(cookieParser());
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+}
 
 // set up database info
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/long-lost-friends';
