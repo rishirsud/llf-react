@@ -1,29 +1,20 @@
 import React, { Component } from 'react';
 import Hero from '../Components/Hero';
-import Navbar from '../Components/Navbar';
 import Search from '../Components/Search';
 
 
 
 class homePage extends Component {
 
-
-
-
-
-
-
-
-  render(){
+  render() {
     return (
       <React.Fragment>
-        <Navbar />
-        <Hero />
+        <Hero>
+          <Search />
+        </Hero>
       </React.Fragment>
     )
   }
-
-
 
 }
 export default homePage;
