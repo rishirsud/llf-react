@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios'
 
-function RegisterForm (){
+class RegisterForm extends Component {
+  state = {
+    email: "",
+    password: ""
+  }
+
+  handleFormChange = (event) => {
+   
+    this.setState({email: event.target.value});
+    console.log(this.state.email)
+  }
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+  }
  
+  
 
-
-
+  render(){
   return (
     <div className="container" id="profileContainer">
     <div className="row">
@@ -22,7 +37,13 @@ function RegisterForm (){
                 <div className="col-lg-12 col-12 mx-auto">
                   <div className="form-group">
                     <label for="email">Your Email </label>
-                    <input type="email" className="form-control" id="registerEmail" placeholder="" />
+                    <input type="email" 
+                    className="form-control" 
+                    id="registerEmail" 
+                  
+                    name="email"
+                    onChange= {this.handleFormChange}
+                    value={this.state.value} />
                   </div>
                   <div className="form-group">
                     <label for="password">Password</label>
@@ -34,7 +55,7 @@ function RegisterForm (){
 
             <div className="row">
               <div className="col-12 my-2 text-center mx-auto">
-                <button id="submitRegister" type='button' className="btn btn-primary">Submit</button>
+                <button id="submitRegister" type='button' className="btn btn-primary" >Submit</button>
               </div>
             </div>
           </div>
@@ -45,6 +66,7 @@ function RegisterForm (){
   </div>
   </div>
   )
+  }
 }
 
 export default RegisterForm;
