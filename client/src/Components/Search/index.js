@@ -28,17 +28,17 @@ function Search() {
                 id="platform-select-menu"
                 className="dropdown-menu dropdown-menu-right"
               >
-                <a className="dropdown-item text-center" href="#">
+                <span className="dropdown-item text-center">
                   <i className="fab fa-steam" /> Steam
-                </a>
+                </span>
                 <div role="separator" className="dropdown-divider" />
-                <a className="dropdown-item text-center" href="#">
+                <span className="dropdown-item text-center">
                   <i className="fab fa-playstation" /> PSN
-                </a>
+                </span>
                 <div role="separator" className="dropdown-divider" />
-                <a className="dropdown-item text-center" href="#">
+                <span className="dropdown-item text-center">
                   <i className="fab fa-xbox" /> XBL
-                </a>
+                </span>
               </div>
             </div>
           </div>
