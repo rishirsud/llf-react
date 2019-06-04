@@ -24,15 +24,19 @@ class Search extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Searching for: ' + this.state.value);
-    if (this.state.platform === "All") {
-      this.getAll(this.state.value)
-    } else if (this.state.platform === "Steam") {
-      this.searchSteam(this.state.value)
-    } else if (this.state.platform === "PSN") {
-      this.searchPSN(this.state.value)
-    } else if (this.state.platform === "XBL") {
-      this.searchXbox(this.state.value)
+
+    const platform = this.state.platform;
+    const value = this.state.value;
+
+    console.log('Searching for: ' + value);
+    if (platform === "All") {
+      this.getAll(value)
+    } else if (platform === "Steam") {
+      this.searchUser(platform, value)
+    } else if (platform === "PSN") {
+      this.searchUser(platform, value)
+    } else if (platform === "Xbox") {
+      this.searchUser(platform, value)
     }
 
   }
@@ -44,8 +48,11 @@ class Search extends Component {
 
   }
 
-  searchSteam = (query) => {
-    axios.get('/api/search/steam?steam=' + query)
+  searchUser = (platform, query) => {
+
+    const lowerPlatform = platform.toLowerCase();
+
+    axios.get(`/api/search/${lowerPlatform}?${lowerPlatform}=${query}`)
       .then(function (response) {
         console.log(response.data);
       })
@@ -71,34 +78,6 @@ class Search extends Component {
         // always executed
       });
   }
-
-  searchPSN = (query) => {
-    axios.get('/api/search/psn?psn=' + query)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-  };
-
-  searchXbox = (query) => {
-    axios.get('/api/search/xbox?xbox=' + query)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-  };
 
   render() {
     console.log(this.state)
@@ -152,7 +131,7 @@ class Search extends Component {
                   <DropdownMenu right>
                     <DropdownItem value="Steam" onClick={this.handlePlatformChange}>Steam</DropdownItem>
                     <DropdownItem value="PSN" onClick={this.handlePlatformChange}>PSN</DropdownItem>
-                    <DropdownItem value="XBL" onClick={this.handlePlatformChange}>XBL</DropdownItem>
+                    <DropdownItem value="Xbox" onClick={this.handlePlatformChange}>XBL</DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </div>
