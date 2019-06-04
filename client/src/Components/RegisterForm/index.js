@@ -1,7 +1,10 @@
 import React from 'react';
-import Hero from '../Hero'
 
 function RegisterForm (){
+ 
+
+
+
   return (
     <div className="container" id="profileContainer">
     <div className="row">
