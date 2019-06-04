@@ -1,6 +1,7 @@
 {
   "name": "long-lost-friends",
   "version": "1.0.0",
+  "proxy": "http://localhost:3001",
   "description": "Find the gaming buddy you lost long ago",
   "main": "server.js",
   "scripts": {
