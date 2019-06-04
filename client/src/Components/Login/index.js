@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './style.css';
 
 class Login extends Component {
 
@@ -25,7 +26,7 @@ class Login extends Component {
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
               <i className="fas fa-sign-in-alt"></i> Login
             </button>
-            <div id="nav-login" className="dropdown-menu">
+            <div id="nav-login" className="dropdown-menu ">
               <form className="px-4 py-3" id="login-form">
                 <div className="form-group">
                   <label htmlFor="email-input-login">Email address</label>
