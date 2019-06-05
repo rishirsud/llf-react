@@ -95,34 +95,6 @@ class Search extends Component {
                 onChange={this.handleChange}
                 value={this.state.value}
               />
-              {/* <div className="input-group-append">
-                <button
-                  id="btn-platform-select"
-                  className="btn btn-outline-secondary btn-secondary text-light dropdown-toggle"
-                  type="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  {this.state.platform}
-                </button>
-                <div
-                  id="platform-select-menu"
-                  className="dropdown-menu dropdown-menu-right"
-                >
-                  <span className="dropdown-item text-center" value="Steam" onClick={this.handlePlatformChange}>
-                    <i className="fab fa-steam" /> Steam
-                </span>
-                  <div role="separator" className="dropdown-divider" value="PSN" onClick={this.handlePlatformChange} />
-                  <span className="dropdown-item text-center">
-                    <i className="fab fa-playstation" /> PSN
-                </span>
-                  <div role="separator" className="dropdown-divider" value="XBL" onClick={this.handlePlatformChange} />
-                  <span className="dropdown-item text-center">
-                    <i className="fab fa-xbox" /> XBL
-                </span>
-                </div>
-              </div> */}
               <div className="input-group-append">
                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                   <DropdownToggle caret>
