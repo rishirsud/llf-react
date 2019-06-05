@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import './style.css';
 
-class Login extends React.Component {
+class Login extends Component {
 
   state = {
     email: '',
