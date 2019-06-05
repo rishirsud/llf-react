@@ -21,9 +21,11 @@ class RegisterForm extends Component {
  handleSubmit = (event) => {
    event.preventDefault();
    console.log(this.state.email, this.state.password);
-   axios.post('/api/user/register')
-   .then(function (response){
-     console.log(response)
+   const email = this.state.email;
+   const password = this.state.password;
+   axios.post('/api/user/register', {
+     email: email,
+     password, password
    })
  }
   
