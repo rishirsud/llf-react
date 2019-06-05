@@ -3,12 +3,19 @@ import Hero from '../Components/Hero';
 import ProfileCard from '../Components/ProfileCard'
 
 
-function profilePage() {
+function profilePage(props) {
+  console.log(props)//
+
   return (
-    <React.Fragment>
-      <Hero />
-      <ProfileCard />
-    </React.Fragment>
+    props.loginStatus ? (
+      <React.Fragment>
+        <Hero />
+        <ProfileCard />
+      </React.Fragment>
+    ) : (
+        <div>Hi!</div>
+        // REDIRECT
+      )
   )
 }
 

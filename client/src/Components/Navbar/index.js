@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Login from '../Login';
 
-function Navbar() {
+function Navbar(props) {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="navBar">
@@ -34,7 +34,7 @@ function Navbar() {
             </li>
           </ul>
 
-          <Login />
+          <Login loginStatus={props.loginStatus} checkLogin={props.checkLogin} handleLogout={props.handleLogout}/>
 
         </div>
       </nav>

@@ -7,6 +7,7 @@ import Search from '../Components/Search';
 class homePage extends Component {
 
   render() {
+    console.log(this.props)
     return (
       <React.Fragment>
         <Hero>
