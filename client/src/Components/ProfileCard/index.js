@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './style.css';
+import Axios from "axios";
 
 class ProfileCard extends Component {
   state = {
@@ -9,6 +10,33 @@ class ProfileCard extends Component {
     steamID: [],
     psnID: "",
     xboxID: ""
+  }
+
+  handleInputChange = (event) => {
+    const {name, value} = event.target;
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const email = this.state.email;
+    const firstName = this.state.firstName;
+    const location = this.state.location;
+    const steamID = this.state.steamID;
+    const psnID = this.state.psnID;
+    const xboxID = this.state.xboxID;
+
+
+    Axios.put('/api/user/update/', {
+      email: email,
+      firstName: firstName,
+      location: location,
+      steam: [steamID],
+      psn: [psnID],
+      xbox: [xboxID]
+    })
   }
 
 
@@ -35,11 +63,21 @@ class ProfileCard extends Component {
                         </div>
                         <div className="form-group">
                           <label htmlFor="firstName">First Name* </label>
-                          <input type="text" className="form-control" id="firstName" placeholder="Enter first name" />
+                          <input type="text" 
+                          className="form-control" 
+                          id="firstName" 
+                          placeholder="Enter first name" 
+                          name="firstName"
+                          onChange={this.handleInputChange}/>
                         </div>
                         <div className="form-group">
                           <label htmlFor="location">Enter your general location* </label>
-                          <input type="text" className="form-control" id="location" placeholder="Country/State" />
+                          <input type="text" 
+                          className="form-control" 
+                          id="location" 
+                          placeholder="Country/State"
+                          name="location"
+                          onChange={this.handleInputChange} />
                         </div>
                       </div>
 
@@ -47,15 +85,30 @@ class ProfileCard extends Component {
                       <div className="col-lg-4 col-12 mx-auto">
                         <div className="form-group">
                           <label htmlFor="steamID">Steam ID* </label>
-                          <input type="text" className="form-control" id="steamID" placeholder="Enter Steam ID " />
+                          <input type="text" 
+                          className="form-control" 
+                          id="steamID" 
+                          placeholder="Enter Steam ID "
+                          name="steamID"
+                          onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="psnID">PSN ID* </label>
-                          <input type="text" className="form-control" id="psnID" placeholder="Enter PSN ID" />
+                          <input type="text" 
+                          className="form-control" 
+                          id="psnID" 
+                          placeholder="Enter PSN ID"
+                          name="psnID"
+                          onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="xboxID">Xbox ID* </label>
-                          <input type="text" className="form-control" id="xboxID" placeholder="Enter Xbox ID" />
+                          <input type="text" 
+                          className="form-control" 
+                          id="xboxID" 
+                          placeholder="Enter Xbox ID" 
+                          name="xboxID"
+                          onChange={this.handleInputChange} />
                         </div>
                       </div>
                     </div>
