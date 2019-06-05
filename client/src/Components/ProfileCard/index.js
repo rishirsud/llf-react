@@ -14,17 +14,22 @@ class ProfileCard extends Component {
 
 
   getDataFromDb = () => {
-    axios.get('http://localhost:3001/api/user/profile')
-      .then((data) => data.json())
-      .then((res) => this.setState({ data: res.data }));
+    const token = localStorage.getItem('accessToken');
+    axios.get('/api/user/profile', { 'headers': { token: token } })
+      .then((userData) => {
+        console.log(userData.data);
+        this.setState({data: userData.data});
+      })
+      // .then((res) => this.setState({ data: res.data }))
+      .catch((err) => console.log(err));
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.getDataFromDb();
   }
 
   handleInputChange = (event) => {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     this.setState({
       [name]: value
     })
@@ -70,30 +75,30 @@ class ProfileCard extends Component {
                       <div className="col-lg-4 col-12 mx-auto">
                         <div className="form-group">
                           <label htmlFor="email">Your Email </label>
-                          <input type="email" 
-                          className="form-control" 
-                          id="profileEmail" 
-                          placeholder="Your Email" disabled />
+                          <input type="email"
+                            className="form-control"
+                            id="profileEmail"
+                            placeholder="Your Email" disabled />
                         </div>
                         <div className="form-group">
                           <label htmlFor="firstName">First Name* </label>
-                          <input type="text" 
-                          className="form-control" 
-                          id="firstName" 
-                          placeholder="Enter first name" 
-                          name="firstName"
-                          onChange={this.handleInputChange}/>
+                          <input type="text"
+                            className="form-control"
+                            id="firstName"
+                            placeholder="Enter first name"
+                            name="firstName"
+                            onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="location">Enter your general location* </label>
-                          <input type="text" 
-                          className="form-control" 
-                          id="location" 
-                          placeholder="Country/State"
-                          name="location"
-                          onChange={this.handleInputChange} />
+                          <input type="text"
+                            className="form-control"
+                            id="location"
+                            placeholder="Country/State"
+                            name="location"
+                            onChange={this.handleInputChange} />
                         </div>
-                       {/*  <div className="form-group">
+                        {/*  <div className="form-group">
                           <label htmlFor="games">Enter your top 3 favorite games* </label>
                           <input type="text" className="form-control" id="favGamesOne" placeholder="1." />
                           <input type="text" className="form-control" id="favGamesTwo" placeholder="2." />
@@ -105,30 +110,30 @@ class ProfileCard extends Component {
                       <div className="col-lg-4 col-12 mx-auto">
                         <div className="form-group">
                           <label htmlFor="steamID">Steam ID* </label>
-                          <input type="text" 
-                          className="form-control" 
-                          id="steamID" 
-                          placeholder="Enter Steam ID "
-                          name="steamID"
-                          onChange={this.handleInputChange} />
+                          <input type="text"
+                            className="form-control"
+                            id="steamID"
+                            placeholder="Enter Steam ID "
+                            name="steamID"
+                            onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="psnID">PSN ID* </label>
-                          <input type="text" 
-                          className="form-control" 
-                          id="psnID" 
-                          placeholder="Enter PSN ID"
-                          name="psnID"
-                          onChange={this.handleInputChange} />
+                          <input type="text"
+                            className="form-control"
+                            id="psnID"
+                            placeholder="Enter PSN ID"
+                            name="psnID"
+                            onChange={this.handleInputChange} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="xboxID">Xbox ID* </label>
-                          <input type="text" 
-                          className="form-control" 
-                          id="xboxID" 
-                          placeholder="Enter Xbox ID" 
-                          name="xboxID"
-                          onChange={this.handleInputChange} />
+                          <input type="text"
+                            className="form-control"
+                            id="xboxID"
+                            placeholder="Enter Xbox ID"
+                            name="xboxID"
+                            onChange={this.handleInputChange} />
                         </div>
                         {/* <div className="form-group">
                           <label htmlFor="nintendo">Nintendo ID* </label>
@@ -149,9 +154,9 @@ class ProfileCard extends Component {
 
                   <div className="row">
                     <div className="col-12 my-2 text-center mx-auto">
-                      <button id="saveProfile" 
-                      className="btn btn-primary"
-                      onClick={this.handleSubmit}>Save</button>
+                      <button id="saveProfile"
+                        className="btn btn-primary"
+                        onClick={this.handleSubmit}>Save</button>
                     </div>
                   </div>
                 </div>
