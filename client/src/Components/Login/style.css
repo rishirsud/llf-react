@@ -1,0 +1,11 @@
+@media only screen and (min-width: 992px) {
+  .dropdown-menu {
+    right: 0 !important;
+    left: unset !important;
+  }
+}
+
+.navbar-login:focus {
+  content: 'Logout';
+  background-color: 'red';
+}
