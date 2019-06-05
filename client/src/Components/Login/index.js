@@ -74,8 +74,8 @@ class Login extends Component {
                 <i className="fas fa-sign-in-alt"></i> Login
             </button>
             ) : (
-                <button type="button" className="btn btn-danger dropdown-toggle-nothing" id="dropdownMenuOffsetLogout"
-                  data-toggle="nothing" aria-haspopup="true" aria-expanded="false" data-offset="10,20" onClick={this.handleLogout}>
+                <button type="button" className="btn btn-danger" id="LogoutBtn"
+                  onClick={this.handleLogout}>
                   <i className="fas fa-sign-in-alt" onClick={this.handleLogout}></i> Logout
             </button>
               )
