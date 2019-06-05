@@ -25,7 +25,7 @@ class RegisterForm extends Component {
    const password = this.state.password;
    axios.post('/api/user/register', {
      email: email,
-     password, password
+     password: password
    })
  }
   
@@ -47,7 +47,7 @@ class RegisterForm extends Component {
               <div className="row">
                 <div className="col-lg-12 col-12 mx-auto">
                   <div className="form-group">
-                    <label for="email">Your Email </label>
+                    <label htmlFor="email">Your Email </label>
                     <input type="email" 
                     className="form-control" 
                     id="registerEmail" 
@@ -57,7 +57,7 @@ class RegisterForm extends Component {
                     value={this.state.email} />
                   </div>
                   <div className="form-group">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input type="password" 
                     className="form-control" 
                     id="registerPassword" 
