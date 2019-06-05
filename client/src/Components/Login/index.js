@@ -7,8 +7,8 @@ class Login extends Component {
 
   state = {
     email: '',
-    password: '',
-    loginStatus: true
+    password: ''
+    // loginStatus: false
   }
 
   handleInputChange = (event) => {
@@ -32,7 +32,7 @@ class Login extends Component {
       .then(token => {
         console.log(token);
         localStorage.setItem('accessToken', token);
-        this.checkLogin();
+        this.props.checkLogin()
         window.location.reload();
       })
       .catch(function (error) {
@@ -40,43 +40,48 @@ class Login extends Component {
       });
   };
 
-  handleLogout = (event) => {
-    event.preventDefault();
-    this.setState({ loginStatus: false });
-    localStorage.removeItem('accessToken');
-    window.location.reload();
-  }
+  // handleLogout = (event) => {
+  //   event.preventDefault();
+  //   this.setState({ loginStatus: false });
+  //   localStorage.removeItem('accessToken');
+  //   window.location.reload();
+  // }
 
-  checkLogin = () => {
-    let token = localStorage.getItem('accessToken');
-    if (token) {
-      console.log('Logged in');
-      this.setState({ loginStatus: true });
-    } else {
-      console.log('Not logged in');
-      this.setState({ loginStatus: false });
-    }
-  };
+  // checkLogin = () => {
+  //   let token = localStorage.getItem('accessToken');
+  //   if (token) {
+  //     console.log('Logged in');
+  //     this.setState({ loginStatus: true });
+  //   } else {
+  //     console.log('Not logged in');
+  //     this.setState({ loginStatus: false });
+  //   }
+  // };
+
+
 
   componentDidMount() {
-    this.checkLogin();
+    this.props.checkLogin();
+    console.log("%%%%%%%%%%%");
+    console.log(this.props.loginStatus);
   }
 
   render() {
+    console.log(this.props);
     return (
       <span className="navbar-login">
         <div className="d-flex">
           <div className="dropdown mr-1">
-            {!this.state.loginStatus ? (
+            {!this.props.loginStatus ? (
 
               <button type="button" className="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
                 <i className="fas fa-sign-in-alt"></i> Login
             </button>
             ) : (
-                <button type="button" className="btn btn-danger dropdown-toggle-nothing" id="dropdownMenuOffsetLogout"
-                  data-toggle="nothing" aria-haspopup="true" aria-expanded="false" data-offset="10,20" onClick={this.handleLogout}>
-                  <i className="fas fa-sign-in-alt" onClick={this.handleLogout}></i> Logout
+                <button type="button" className="btn btn-danger" id="LogoutBtn"
+                  onClick={this.props.handleLogout}>
+                  <i className="fas fa-sign-in-alt" onClick={this.props.handleLogout}></i> Logout
             </button>
               )
             }

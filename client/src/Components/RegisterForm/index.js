@@ -27,6 +27,8 @@ class RegisterForm extends Component {
      email: email,
      password: password
    })
+
+  //  auto login the user on register
  }
   
 
