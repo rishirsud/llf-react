@@ -8,6 +8,7 @@ class Login extends Component {
   state = {
     email: '',
     password: '',
+    loginStatus: true
   }
 
   handleInputChange = (event) => {
@@ -38,15 +39,16 @@ class Login extends Component {
   };
 
   checkLogin = () => {
-    let token = localStorage.getItem('myData');
-    if (token){
-      console.log('logged in already')
-      // Change button to login
+    let token = localStorage.getItem('accessToken');
+    if (token) {
+      console.log('Logged in');
+      this.setState({ loginStatus: true });
     } else {
       console.log('Not logged in');
+      this.setState({ loginStatus: false });
     }
   };
-  
+
   componentDidMount() {
     this.checkLogin();
   }
@@ -56,10 +58,19 @@ class Login extends Component {
       <span className="navbar-login">
         <div className="d-flex">
           <div className="dropdown mr-1">
-            <button type="button" className="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-              <i className="fas fa-sign-in-alt"></i> Login
+            {!this.state.loginStatus ? (
+
+              <button type="button" className="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                <i className="fas fa-sign-in-alt"></i> Login
             </button>
+            ) : (
+                <button type="button" className="btn btn-danger dropdown-toggle" id="dropdownMenuOffset"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                  <i className="fas fa-sign-in-alt"></i> Logout
+            </button>
+              )
+            }
             <div id="nav-login" className="dropdown-menu ">
               <form className="px-4 py-3" id="login-form">
                 <div className="form-group">

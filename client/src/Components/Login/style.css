@@ -4,8 +4,3 @@
     left: unset !important;
   }
 }
-
-.navbar-login:focus {
-  content: 'Logout';
-  background-color: 'red';
-}
