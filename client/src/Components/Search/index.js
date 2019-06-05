@@ -43,7 +43,7 @@ class Search extends Component {
 
   handlePlatformChange = (event) => {
 
-    console.log(event.target.data)
+    // console.log(event.target.data)
     this.setState({ platform: event.target.value })
 
   }
