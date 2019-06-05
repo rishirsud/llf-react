@@ -31,6 +31,12 @@ class ProfileCard extends Component {
                           <label htmlFor="location">Enter your general location* </label>
                           <input type="text" className="form-control" id="location" placeholder="Country/State" />
                         </div>
+                       {/*  <div className="form-group">
+                          <label htmlFor="games">Enter your top 3 favorite games* </label>
+                          <input type="text" className="form-control" id="favGamesOne" placeholder="1." />
+                          <input type="text" className="form-control" id="favGamesTwo" placeholder="2." />
+                          <input type="text" className="form-control" id="favGamesThree" placeholder="3." />
+                        </div> */}
                       </div>
 
 
@@ -47,6 +53,14 @@ class ProfileCard extends Component {
                           <label htmlFor="xboxID">Xbox ID* </label>
                           <input type="text" className="form-control" id="xboxID" placeholder="Enter Xbox ID" />
                         </div>
+                        {/* <div className="form-group">
+                          <label htmlFor="nintendo">Nintendo ID* </label>
+                          <input type="text" className="form-control" id="nintendoID" placeholder="Enter Nintendo ID" />
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="blizzard">Blizzard ID* </label>
+                          <input type="text" className="form-control" id="blizzardID" placeholder="Enter Blizzard ID" />
+                        </div> */}
                       </div>
                     </div>
                     <div className="row">

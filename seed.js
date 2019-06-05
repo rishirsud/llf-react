@@ -18,6 +18,8 @@ const userSeed1 = {
   steam: ["BobThePainter"],
   xbox: ["BobTheBuilder"],
   psn: ["BobTheDestroyer"],
+  /* nintendo: ["BobNintendo"],
+  blizzard: ["BobBlizzard"] */
 };
 
 const userSeed2 = {
@@ -30,6 +32,8 @@ const userSeed2 = {
   steam: ["CrocodileHunter"],
   xbox: ["steveHunter"],
   psn: ["CrocodileHunter", "KillerCroc", "Steve"],
+  /* nintendo: ["steveNintendo"],
+  blizzard: ["BobBlizzard, JonahBlizzard, RishabhBlizzard"] */
 };
 
 const userSeed3 = {
@@ -42,6 +46,8 @@ const userSeed3 = {
   steam: ["SteveSteve"],
   xbox: ["SteveXboxSteve"],
   psn: ["StevePSNSteve", "hunwiowoenfowe", "wfkwje fwkej f"],
+  /* nintendo: ["SteveNin"],
+  blizzard: ["SteveBlizz", "RishBlizz", "JonahBlizz"] */
 };
 
 const userSeed4 = {
@@ -54,6 +60,8 @@ const userSeed4 = {
   steam: ["SteveSTEAMwuebfiweubfiwb"],
   xbox: ["SteveXboxeiwoienf"],
   psn: ["wenwoein", "ownfowi", "kjwwofnwoe"],
+  /* nintendo: ["NinBlah"],
+  blizzard: ["blizzBlah", "blahBlizz", "saldkfjaa"] */
 };
 
 // const sendStuff = [userSeed1, userSeed2]

@@ -49,7 +49,9 @@ const UserSchema = new Schema({
   },
   steam: [],
   xbox: [],
-  psn: []
+  psn: [],
+  /* nintendo: [],
+  blizzard: [] */
   // searches: [PastSearchSchema]
 });
 
