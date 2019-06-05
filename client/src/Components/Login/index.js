@@ -32,11 +32,20 @@ class Login extends Component {
       .then(token => {
         console.log(token);
         localStorage.setItem('accessToken', token);
+        this.checkLogin();
+        window.location.reload();
       })
       .catch(function (error) {
         console.log(error);
       });
   };
+
+  handleLogout = (event) => {
+    event.preventDefault();
+    this.setState({ loginStatus: false });
+    localStorage.removeItem('accessToken');
+    window.location.reload();
+  }
 
   checkLogin = () => {
     let token = localStorage.getItem('accessToken');
@@ -65,9 +74,9 @@ class Login extends Component {
                 <i className="fas fa-sign-in-alt"></i> Login
             </button>
             ) : (
-                <button type="button" className="btn btn-danger dropdown-toggle" id="dropdownMenuOffset"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-                  <i className="fas fa-sign-in-alt"></i> Logout
+                <button type="button" className="btn btn-danger dropdown-toggle-nothing" id="dropdownMenuOffsetLogout"
+                  data-toggle="nothing" aria-haspopup="true" aria-expanded="false" data-offset="10,20" onClick={this.handleLogout}>
+                  <i className="fas fa-sign-in-alt" onClick={this.handleLogout}></i> Logout
             </button>
               )
             }
