@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './style.css';
-import Axios from "axios";
+import axios from "axios";
 
 class ProfileCard extends Component {
   state = {
@@ -10,6 +10,17 @@ class ProfileCard extends Component {
     steamID: [],
     psnID: "",
     xboxID: ""
+  }
+
+
+  getDataFromDb = () => {
+    axios.get('http://localhost:3001/api/user/profile')
+      .then((data) => data.json())
+      .then((res) => this.setState({ data: res.data }));
+  };
+
+  componentDidMount(){
+    this.getDataFromDb();
   }
 
   handleInputChange = (event) => {
@@ -29,7 +40,7 @@ class ProfileCard extends Component {
     const xboxID = this.state.xboxID;
 
 
-    Axios.put('/api/user/update/', {
+    axios.put('/api/user/update/', {
       email: email,
       firstName: firstName,
       location: location,
@@ -59,7 +70,10 @@ class ProfileCard extends Component {
                       <div className="col-lg-4 col-12 mx-auto">
                         <div className="form-group">
                           <label htmlFor="email">Your Email </label>
-                          <input type="email" className="form-control" id="profileEmail" placeholder="Your Email" disabled />
+                          <input type="email" 
+                          className="form-control" 
+                          id="profileEmail" 
+                          placeholder="Your Email" disabled />
                         </div>
                         <div className="form-group">
                           <label htmlFor="firstName">First Name* </label>
