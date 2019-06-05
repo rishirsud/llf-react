@@ -19,7 +19,7 @@ class RegisterForm extends Component {
   };
 
  handleSubmit = (event) => {
-   event.preventDefault();
+   event.preventDefault(event);
    console.log(this.state.email, this.state.password);
    const email = this.state.email;
    const password = this.state.password;

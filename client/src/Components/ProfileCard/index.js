@@ -121,7 +121,9 @@ class ProfileCard extends Component {
 
                   <div className="row">
                     <div className="col-12 my-2 text-center mx-auto">
-                      <button id="saveProfile" className="btn btn-primary">Save</button>
+                      <button id="saveProfile" 
+                      className="btn btn-primary"
+                      onClick={this.handleSubmit}>Save</button>
                     </div>
                   </div>
                 </div>
