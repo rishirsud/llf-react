@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import './style.css';
 
 class ProfileCard extends Component {
+  state = {
+    email: "",
+    firstName: "",
+    location: "",
+    steamID: [],
+    psnID: "",
+    xboxID: ""
+  }
+
+
 
   render() {
     return (
