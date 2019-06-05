@@ -7,16 +7,27 @@ class RegisterForm extends Component {
     password: ""
   }
 
-  handleFormChange = (event) => {
+  handleEmailChange = (event) => {
    
     this.setState({email: event.target.value});
+    
     console.log(this.state.email)
-  }
+  };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-  }
- 
+  handlePasswordChange = (event) => {
+    this.setState({password: event.target.value})
+  };
+
+ handleSubmit = (event) => {
+   event.preventDefault();
+   console.log(this.state.email, this.state.password);
+   const email = this.state.email;
+   const password = this.state.password;
+   axios.post('/api/user/register', {
+     email: email,
+     password, password
+   })
+ }
   
 
   render(){
@@ -36,18 +47,24 @@ class RegisterForm extends Component {
               <div className="row">
                 <div className="col-lg-12 col-12 mx-auto">
                   <div className="form-group">
-                    <label htmlFor="email">Your Email </label>
+                    <label for="email">Your Email </label>
                     <input type="email" 
                     className="form-control" 
                     id="registerEmail" 
                   
                     name="email"
-                    onChange= {this.handleFormChange}
-                    value={this.state.value} />
+                    onChange= {this.handleEmailChange}
+                    value={this.state.email} />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" id="registerPassword" placeholder="" />
+                    <label for="password">Password</label>
+                    <input type="password" 
+                    className="form-control" 
+                    id="registerPassword" 
+                    placeholder=""
+                    name="password"
+                    onChange={this.handlePasswordChange}
+                    value={this.state.password} />
                   </div>
                 </div>
               </div>
@@ -55,7 +72,10 @@ class RegisterForm extends Component {
 
             <div className="row">
               <div className="col-12 my-2 text-center mx-auto">
-                <button id="submitRegister" type='button' className="btn btn-primary" >Submit</button>
+                <button id="submitRegister" 
+                type='button' 
+                className="btn btn-primary"
+                onClick={this.handleSubmit} >Submit</button>
               </div>
             </div>
           </div>
