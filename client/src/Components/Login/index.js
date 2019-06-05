@@ -92,7 +92,7 @@ class Login extends Component {
                 <button className="btn btn-primary" id="signInButton" type="submit" onClick={this.handleSubmit}>Sign in</button>
               </form>
               <div className="dropdown-divider"></div>
-              <Link className="dropdown-item" htmlTo="/register">New around here? Sign up</Link>
+              <Link className="dropdown-item" to="/register">New around here? Sign up</Link>
             </div>
           </div>
         </div>
