@@ -1,20 +1,54 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import './style.css';
 
 class Login extends Component {
 
   state = {
-    username: '',
-    password: ''
+    email: '',
+    password: '',
   }
 
-  handleUsernameChange = (event) => {
-    this.setState({ value: event.target.value });
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    })
   }
 
-  handlePasswordChange = (event) => {
-    this.setState({ value: event.target.value });
+  handleSubmit = (event) => {
+    event.preventDefault(event);
+    const email = this.state.email;
+    const password = this.state.password;
+
+    console.log(email, password);
+
+    axios.post('/api/user/login', {
+      email: email,
+      password: password
+    })
+      .then(token => {
+        console.log(token);
+        localStorage.setItem('accessToken', token);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  checkLogin = () => {
+    let token = localStorage.getItem('myData');
+    if (token){
+      console.log('logged in already')
+      // Change button to login
+    } else {
+      console.log('Not logged in');
+    }
+  };
+  
+  componentDidMount() {
+    this.checkLogin();
   }
 
   render() {
@@ -30,18 +64,21 @@ class Login extends Component {
               <form className="px-4 py-3" id="login-form">
                 <div className="form-group">
                   <label htmlFor="email-input-login">Email address</label>
-                  <input type="email" className="form-control" id="email-input-login"
+                  <input className="form-control" id="email-input-login"
                     placeholder="email@example.com"
-                    onChange={this.handleUsernameChange}
-                    username={this.state.value} />
+                    onChange={this.handleInputChange}
+                    value={this.state.username}
+                    name="email"
+                    type="email" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="password-input-login">Password</label>
                   <input type="password" className="form-control" id="password-input-login" placeholder="Password"
-                    onChange={this.handlePasswordChange}
-                    password={this.state.value} />
+                    onChange={this.handleInputChange}
+                    value={this.state.password}
+                    name="password" />
                 </div>
-                <button type="button" className="btn btn-primary" id="signInButton">Sign in</button>
+                <button className="btn btn-primary" id="signInButton" type="submit" onClick={this.handleSubmit}>Sign in</button>
               </form>
               <div className="dropdown-divider"></div>
               <Link className="dropdown-item" to="/register">New around here? Sign up</Link>
