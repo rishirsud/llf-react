@@ -23,7 +23,7 @@ class Login extends Component {
     const email = this.state.email;
     const password = this.state.password;
 
-    console.log(email, password);
+    // console.log(email, password);
 
     axios.post('/api/user/login', {
       email: email,
@@ -40,34 +40,11 @@ class Login extends Component {
       });
   };
 
-  // handleLogout = (event) => {
-  //   event.preventDefault();
-  //   this.setState({ loginStatus: false });
-  //   localStorage.removeItem('accessToken');
-  //   window.location.reload();
-  // }
-
-  // checkLogin = () => {
-  //   let token = localStorage.getItem('accessToken');
-  //   if (token) {
-  //     console.log('Logged in');
-  //     this.setState({ loginStatus: true });
-  //   } else {
-  //     console.log('Not logged in');
-  //     this.setState({ loginStatus: false });
-  //   }
-  // };
-
-
-
   componentDidMount() {
     this.props.checkLogin();
-    console.log("%%%%%%%%%%%");
-    console.log(this.props.loginStatus);
   }
 
   render() {
-    console.log(this.props);
     return (
       <span className="navbar-login">
         <div className="d-flex">
