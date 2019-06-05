@@ -4,7 +4,9 @@ const {
   searchAllProfile,
   searchPSN,
   searchXbox,
-  searchSteam
+  searchSteam,
+  /* searchNintendo,
+  searchBlizzard */
 } = require('../../controllers/search-controller');
 
 router
@@ -22,5 +24,13 @@ router
 router
   .route("/steam")
   .get(searchSteam);
+
+/* router
+  .route("/nintendo")
+  .get(searchNintendo);
+
+router
+  .route("/blizzard")
+  .get (searchBlizzard); */
 
 module.exports = router;

@@ -12,7 +12,9 @@ const getAllProfiles = function (req, res) {
       location: 1,
       steam: 1,
       psn: 1,
-      xbox: 1
+      xbox: 1,
+      /* nintendo: 1,
+      blizzard: 1 */
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -53,14 +55,28 @@ const searchAllProfile = function (req, res) {
             $regex: search.xbox,
             $options: '$i'
           }
-        }
+        },
+        /* {
+          nintendo: {
+            $regex: search.nintendo,
+            $options: '$i'
+          }
+        },
+        {
+          blizzard: {
+            $regex: search.blizzard,
+            $options: '$i'
+          }
+        }, */
       ]
     }, {
       firstName: 1,
       location: 1,
       steam: 1,
       psn: 1,
-      xbox: 1
+      xbox: 1,
+      /* nintendo: 1,
+      blizzard: 1 */
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -164,10 +180,72 @@ const searchSteam = function (req, res) {
     })
 }
 
+/* const searchNintendo = function (req, res) {
+
+  let db = require("../models");
+
+  let search = req.query.nintendo;
+
+  console.log(`looking for nintendo ${search}`);
+
+  db.User.find({
+      $or: [{
+        nintendo: {
+          $regex: search,
+          $options: '$i'
+        }
+      }]
+    }, {
+      firstName: 1,
+      location: 1,
+      nintendo: 1,
+    })
+    .then(function (dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function (err) {
+      if (err) {
+        console.log(err);
+      }
+    })
+}
+
+const searchBlizzard = function (req, res) {
+
+  let db = require("../models");
+
+  let search = req.query.blizzard;
+
+  console.log(`looking for blizzard ${search}`);
+
+  db.User.find({
+      $or: [{
+        blizzard: {
+          $regex: search,
+          $options: '$i'
+        }
+      }]
+    }, {
+      firstName: 1,
+      location: 1,
+      blizzard: 1,
+    })
+    .then(function (dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function (err) {
+      if (err) {
+        console.log(err);
+      }
+    })
+}  */
+
 module.exports = {
   getAllProfiles,
   searchAllProfile,
   searchPSN,
   searchXbox,
-  searchSteam
+  searchSteam,
+ /*  searchNintendo,
+  searchBlizzard */
 };
