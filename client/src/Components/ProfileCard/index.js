@@ -79,11 +79,11 @@ class ProfileCard extends Component {
       gameOne: gameOne,
       gameTwo: gameTwo,
       gameThree: gameThree,
-      steam: [steamID],
-      psn: [psnID],
-      xbox: [xboxID],
-      nintendo: [nintendo],
-      blizzard: [blizzard]
+      steam: steamID,
+      psn: psnID,
+      xbox: xboxID,
+      nintendo: nintendo,
+      blizzard: blizzard
     })
   }
 
