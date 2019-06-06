@@ -7,6 +7,9 @@ class ProfileCard extends Component {
     email: "",
     firstName: "",
     location: "",
+    gameOne: "",
+    gameTwo: "",
+    gameThree: "",
     steamID: "",
     psnID: "",
     xboxID: "",
@@ -26,6 +29,9 @@ class ProfileCard extends Component {
           email: userData.data.email,
           firstName: userData.data.firstName,
           location: userData.data.location,
+          gameOne: userData.data.gameOne,
+          gameTwo: userData.data.gameTwo,
+          gameThree: userData.data.gameThree,
           steamID: userData.data.steam,
           psnID: userData.data.psn,
           xboxID: userData.data.xbox,
@@ -57,6 +63,8 @@ class ProfileCard extends Component {
     const firstName = this.state.firstName;
     const location = this.state.location;
     const gameOne = this.state.gameOne;
+    const gameTwo = this.state.gameTwo;
+    const gameThree = this.state.gameThree;
     const steamID = this.state.steamID;
     const psnID = this.state.psnID;
     const xboxID = this.state.xboxID;
@@ -134,21 +142,24 @@ class ProfileCard extends Component {
                           id="favGamesOne" 
                           placeholder="1." 
                           name="gameOne" 
-                          onChange={this.handleInputChange} />
+                          onChange={this.handleInputChange} 
+                          value={this.state.gameOne} />
 
                           <input type="text" 
                           className="form-control" 
                           id="favGamesTwo" 
                           placeholder="2."
                           name="gameTwo"
-                          onChange={this.handleInputChange} />
+                          onChange={this.handleInputChange}
+                          value={this.state.gameTwo} />
 
                           <input type="text" 
                           className="form-control" 
                           id="favGamesThree" 
                           placeholder="3."
                           name="gameThree"
-                          onChange={this.handleInputChange} />
+                          onChange={this.handleInputChange}
+                          value={this.state.gameThree} />
                         </div>
                       </div>
 
