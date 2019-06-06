@@ -47,6 +47,18 @@ const UserSchema = new Schema({
   location: {
     type: String
   },
+  gameOne: {
+    type: String,
+    trim: true
+  },
+  gameTwo: {
+    type: String,
+    trim: true
+  },
+  gameThree: {
+    type: String,
+    trim: true
+  },
   steam: [],
   xbox: [],
   psn: [],

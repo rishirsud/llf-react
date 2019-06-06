@@ -7,9 +7,12 @@ class ProfileCard extends Component {
     email: "",
     firstName: "",
     location: "",
+    gameOne: "",
     steamID: [],
     psnID: "",
-    xboxID: ""
+    xboxID: "",
+    /* nintendoID: "",
+    blizzardID: "" */
   }
 
 
@@ -40,18 +43,26 @@ class ProfileCard extends Component {
     const email = this.state.email;
     const firstName = this.state.firstName;
     const location = this.state.location;
+    const gameOne = this.state.gameOne;
     const steamID = this.state.steamID;
     const psnID = this.state.psnID;
     const xboxID = this.state.xboxID;
+   /*  const nintendoID = this.state.nintendoID;
+    const blizzardID = this.state.blizzardID; */
 
 
     axios.put('/api/user/update/', {
       email: email,
       firstName: firstName,
       location: location,
+      gameOne: gameOne,
+      gameTwo: gameTwo,
+      gameThree: gameThree,
       steam: [steamID],
       psn: [psnID],
-      xbox: [xboxID]
+      xbox: [xboxID],
+      /* nintendo: [nintendoID],
+      blizzard: [blizzardID] */
     })
   }
 
@@ -98,12 +109,29 @@ class ProfileCard extends Component {
                             name="location"
                             onChange={this.handleInputChange} />
                         </div>
-                        {/*  <div className="form-group">
+                        <div className="form-group">
                           <label htmlFor="games">Enter your top 3 favorite games* </label>
-                          <input type="text" className="form-control" id="favGamesOne" placeholder="1." />
-                          <input type="text" className="form-control" id="favGamesTwo" placeholder="2." />
-                          <input type="text" className="form-control" id="favGamesThree" placeholder="3." />
-                        </div> */}
+                          <input type="text" 
+                          className="form-control" 
+                          id="favGamesOne" 
+                          placeholder="1." 
+                          name="gameOne" 
+                          onChange={this.handleInputChange} />
+
+                          <input type="text" 
+                          className="form-control" 
+                          id="favGamesTwo" 
+                          placeholder="2."
+                          name="gameTwo"
+                          onChange={this.handleInputChange} />
+
+                          <input type="text" 
+                          className="form-control" 
+                          id="favGamesThree" 
+                          placeholder="3."
+                          name="gameThree"
+                          onChange={this.handleInputChange} />
+                        </div>
                       </div>
 
 

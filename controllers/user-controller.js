@@ -123,6 +123,9 @@ const updateProfile = async(req, res) => {
   User.findByIdAndUpdate(req._id, {
     firstName: req.body.firstName,
     location: req.body.location,
+    gameOne: req.body.gameOne,
+    gameTwo: req.body.gameTwo,
+    gameThree: req.body.gameThree,
     steam: req.body.steam, 
     xbox: req.body.xbox,
     psn: req.body.psn,
