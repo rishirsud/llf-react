@@ -105,6 +105,7 @@ class Search extends Component {
                     {this.state.platform}
                   </DropdownToggle>
                   <DropdownMenu right>
+                    <DropdownItem value="All" onClick={this.handlePlatformChange}>All</DropdownItem>
                     <DropdownItem value="Steam" onClick={this.handlePlatformChange}>Steam</DropdownItem>
                     <DropdownItem value="PSN" onClick={this.handlePlatformChange}>PSN</DropdownItem>
                     <DropdownItem value="Xbox" onClick={this.handlePlatformChange}>XBL</DropdownItem>
