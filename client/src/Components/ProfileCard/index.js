@@ -7,6 +7,9 @@ class ProfileCard extends Component {
     email: "",
     firstName: "",
     location: "",
+    gameOne: "",
+    gameTwo: "",
+    gameThree: "",
     steamID: "",
     psnID: "",
     xboxID: "",
@@ -26,6 +29,9 @@ class ProfileCard extends Component {
           email: userData.data.email,
           firstName: userData.data.firstName,
           location: userData.data.location,
+          gameOne: userData.data.gameOne,
+          gameTwo: userData.data.gameTwo,
+          gameThree: userData.data.gameThree,
           steamID: userData.data.steam,
           psnID: userData.data.psn,
           xboxID: userData.data.xbox,
@@ -56,6 +62,9 @@ class ProfileCard extends Component {
     const email = this.state.email;
     const firstName = this.state.firstName;
     const location = this.state.location;
+    const gameOne = this.state.gameOne;
+    const gameTwo = this.state.gameTwo;
+    const gameThree = this.state.gameThree;
     const steamID = this.state.steamID;
     const psnID = this.state.psnID;
     const xboxID = this.state.xboxID;
@@ -67,6 +76,9 @@ class ProfileCard extends Component {
       email: email,
       firstName: firstName,
       location: location,
+      gameOne: gameOne,
+      gameTwo: gameTwo,
+      gameThree: gameThree,
       steam: [steamID],
       psn: [psnID],
       xbox: [xboxID],
@@ -123,12 +135,32 @@ class ProfileCard extends Component {
                             onChange={this.handleInputChange} 
                             value={this.state.location}/>
                         </div>
-                        {/*  <div className="form-group">
+                        <div className="form-group">
                           <label htmlFor="games">Enter your top 3 favorite games* </label>
-                          <input type="text" className="form-control" id="favGamesOne" placeholder="1." />
-                          <input type="text" className="form-control" id="favGamesTwo" placeholder="2." />
-                          <input type="text" className="form-control" id="favGamesThree" placeholder="3." />
-                        </div> */}
+                          <input type="text" 
+                          className="form-control" 
+                          id="favGamesOne" 
+                          placeholder="1." 
+                          name="gameOne" 
+                          onChange={this.handleInputChange} 
+                          value={this.state.gameOne} />
+
+                          <input type="text" 
+                          className="form-control" 
+                          id="favGamesTwo" 
+                          placeholder="2."
+                          name="gameTwo"
+                          onChange={this.handleInputChange}
+                          value={this.state.gameTwo} />
+
+                          <input type="text" 
+                          className="form-control" 
+                          id="favGamesThree" 
+                          placeholder="3."
+                          name="gameThree"
+                          onChange={this.handleInputChange}
+                          value={this.state.gameThree} />
+                        </div>
                       </div>
 
 
