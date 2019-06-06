@@ -7,18 +7,32 @@ class ProfileCard extends Component {
     email: "",
     firstName: "",
     location: "",
-    steamID: [],
+    steamID: "",
     psnID: "",
-    xboxID: ""
+    xboxID: "",
+    nintendo: "",
+    blizzard: ""
   }
 
 
   getDataFromDb = () => {
     const token = localStorage.getItem('accessToken');
+
     axios.get('/api/user/profile', { 'headers': { token: token } })
       .then((userData) => {
         console.log(userData.data);
         this.setState({data: userData.data});
+        this.setState({
+          email: userData.data.email,
+          firstName: userData.data.firstName,
+          location: userData.data.location,
+          steamID: userData.data.steam,
+          psnID: userData.data.psn,
+          xboxID: userData.data.xbox,
+          nintendo: userData.data.nintendo,
+          blizzard: userData.data.blizzard
+        })
+
       })
       // .then((res) => this.setState({ data: res.data }))
       .catch((err) => console.log(err));
@@ -31,7 +45,9 @@ class ProfileCard extends Component {
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({
+      
       [name]: value
+      
     })
   }
 
@@ -43,6 +59,8 @@ class ProfileCard extends Component {
     const steamID = this.state.steamID;
     const psnID = this.state.psnID;
     const xboxID = this.state.xboxID;
+    const nintendo = this.state.nintendo;
+    const blizzard = this.state.blizzard;
 
 
     axios.put('/api/user/update/', {
@@ -51,7 +69,9 @@ class ProfileCard extends Component {
       location: location,
       steam: [steamID],
       psn: [psnID],
-      xbox: [xboxID]
+      xbox: [xboxID],
+      nintendo: [nintendo],
+      blizzard: [blizzard]
     })
   }
 
@@ -78,7 +98,10 @@ class ProfileCard extends Component {
                           <input type="email"
                             className="form-control"
                             id="profileEmail"
-                            placeholder="Your Email" disabled />
+                            // placeholder="Your Email"
+                             disabled
+                             value={this.state.email}
+                              />
                         </div>
                         <div className="form-group">
                           <label htmlFor="firstName">First Name* </label>
@@ -87,7 +110,8 @@ class ProfileCard extends Component {
                             id="firstName"
                             placeholder="Enter first name"
                             name="firstName"
-                            onChange={this.handleInputChange} />
+                            onChange={this.handleInputChange}
+                            value={this.state.firstName} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="location">Enter your general location* </label>
@@ -96,7 +120,8 @@ class ProfileCard extends Component {
                             id="location"
                             placeholder="Country/State"
                             name="location"
-                            onChange={this.handleInputChange} />
+                            onChange={this.handleInputChange} 
+                            value={this.state.location}/>
                         </div>
                         {/*  <div className="form-group">
                           <label htmlFor="games">Enter your top 3 favorite games* </label>
@@ -115,7 +140,8 @@ class ProfileCard extends Component {
                             id="steamID"
                             placeholder="Enter Steam ID "
                             name="steamID"
-                            onChange={this.handleInputChange} />
+                            onChange={this.handleInputChange} 
+                            value={this.state.steamID}/>
                         </div>
                         <div className="form-group">
                           <label htmlFor="psnID">PSN ID* </label>
@@ -124,7 +150,8 @@ class ProfileCard extends Component {
                             id="psnID"
                             placeholder="Enter PSN ID"
                             name="psnID"
-                            onChange={this.handleInputChange} />
+                            onChange={this.handleInputChange}
+                            value={this.state.psnID} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="xboxID">Xbox ID* </label>
@@ -133,16 +160,29 @@ class ProfileCard extends Component {
                             id="xboxID"
                             placeholder="Enter Xbox ID"
                             name="xboxID"
-                            onChange={this.handleInputChange} />
+                            onChange={this.handleInputChange}
+                            value={this.state.xboxID} />
                         </div>
-                        {/* <div className="form-group">
+                        <div className="form-group">
                           <label htmlFor="nintendo">Nintendo ID* </label>
-                          <input type="text" className="form-control" id="nintendoID" placeholder="Enter Nintendo ID" />
+                          <input type="text" 
+                          className="form-control" 
+                          id="nintendoID" 
+                          placeholder="Enter Nintendo"
+                          name="nintendo"
+                          onChange={this.handleInputChange}
+                          value={this.state.nintendo} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="blizzard">Blizzard ID* </label>
-                          <input type="text" className="form-control" id="blizzardID" placeholder="Enter Blizzard ID" />
-                        </div> */}
+                          <input type="text" 
+                          className="form-control" 
+                          id="blizzard" 
+                          name="blizzard"
+                          placeholder="Enter Blizzard ID"
+                          onChange={this.handleInputChange}
+                          value={this.state.blizzard} />
+                        </div>
                       </div>
                     </div>
                     <div className="row">
