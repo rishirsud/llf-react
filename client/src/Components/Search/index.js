@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import SearchCards from '../SearchCards';
 import axios from 'axios';
 
 class Search extends Component {
@@ -57,31 +58,47 @@ class Search extends Component {
     const lowerPlatform = platform.toLowerCase();
 
     axios.get(`/api/search/${lowerPlatform}?${lowerPlatform}=${query}`)
-      .then(function (response) {
+      .then((response) => {
         console.log(response.data);
+        this.printStuff(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
         // handle error
         console.log(error);
       })
-      .finally(function () {
+      .finally(() => {
         // always executed
       });
   };
 
+
+
   getAll = () => {
+
+
     axios.get('/api/all')
-      .then(function (response) {
+      .then((response) => {
         console.log(response.data);
+        // print card function here
+        this.printStuff(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
         // handle error
         console.log(error);
       })
-      .finally(function () {
+      .finally(() => {
         // always executed
       });
   }
+
+
+  printStuff = (arr) => {
+    arr.forEach(result => {
+      console.log(result);
+      
+    });
+  }
+
 
   render() {
     console.log(this.state)
