@@ -129,8 +129,8 @@ const updateProfile = async(req, res) => {
     steam: req.body.steam, 
     xbox: req.body.xbox,
     psn: req.body.psn,
-    /* nintendo: req.body.nintendo,
-    blizzard: req.body.blizzard */
+    nintendo: req.body.nintendo,
+    blizzard: req.body.blizzard
   },
   {new: true})
   .then(User => {
