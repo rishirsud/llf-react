@@ -11,7 +11,7 @@ class RegisterForm extends Component {
    
     this.setState({email: event.target.value});
     
-    console.log(this.state.email)
+    // console.log(this.state.email)
   };
 
   handlePasswordChange = (event) => {
@@ -20,7 +20,7 @@ class RegisterForm extends Component {
 
  handleSubmit = (event) => {
    event.preventDefault(event);
-   console.log(this.state.email, this.state.password);
+  //  console.log(this.state.email, this.state.password);
    const email = this.state.email;
    const password = this.state.password;
    axios.post('/api/user/register', {
