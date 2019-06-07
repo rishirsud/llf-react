@@ -8,3 +8,8 @@
   color: white;
   font-family: 'Cinzel', serif;
 }
+
+.jumbotron{
+  z-index: -1 !important;
+  height: 20rem;
+}

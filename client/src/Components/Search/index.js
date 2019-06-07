@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import SearchCards from '../SearchCards';
 import axios from 'axios';
+import './style.css'
 
 class Search extends Component {
 
@@ -106,7 +107,7 @@ class Search extends Component {
     console.log(this.state)
     return (
       <React.Fragment>
-        <div>
+        <div className="container-fluid">
         <div className="row">
           <div className="col-lg-7 col-md-9 col-12 mx-auto text-center">
             <div className="input-group">
@@ -149,12 +150,14 @@ class Search extends Component {
 
 
         {/* search results hopefully */}
-        <div>
+
+        <div className="resultContainerThing">
           <div className="row">{
             
               this.state.searchResult.map(result => {
                 return (
                   <SearchCards 
+                  key={result.id}
                   name ={result.firstName}
                   location={result.location}
                   steamID={result.steam}
@@ -167,8 +170,7 @@ class Search extends Component {
                 </SearchCards>
                 )
               })
-            
-           
+
           }
             
           </div>
