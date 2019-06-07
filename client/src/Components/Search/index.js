@@ -9,7 +9,8 @@ class Search extends Component {
   state = {
     value: '',
     platform: 'All',
-    dropdownOpen: false
+    dropdownOpen: false,
+    searchResult: []
   }
 
   toggle = () => {
@@ -61,6 +62,7 @@ class Search extends Component {
       .then((response) => {
         console.log(response.data);
         this.printStuff(response.data);
+        this.setState({searchResult: response.data})
       })
       .catch((error) => {
         // handle error
@@ -104,6 +106,7 @@ class Search extends Component {
     console.log(this.state)
     return (
       <React.Fragment>
+        <div>
         <div className="row">
           <div className="col-lg-7 col-md-9 col-12 mx-auto text-center">
             <div className="input-group">
@@ -142,6 +145,35 @@ class Search extends Component {
           </button>
           </div>
         </div>
+        </div>
+
+
+        {/* search results hopefully */}
+        <div>
+          <div className="row">{
+            
+              this.state.searchResult.map(result => {
+                return (
+                  <SearchCards 
+                  name ={result.firstName}
+                  location={result.location}
+                  steamID={result.steam}
+                  psnID = {result.psn}
+                  xboxID = {result.xbox}>
+                  
+                  {
+                    console.log(this.state.searchResult.length) 
+                  }
+                </SearchCards>
+                )
+              })
+            
+           
+          }
+            
+          </div>
+        </div>
+        
 
       </React.Fragment>
     );
