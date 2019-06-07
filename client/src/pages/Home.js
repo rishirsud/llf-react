@@ -11,8 +11,10 @@ class homePage extends Component {
     return (
       <React.Fragment>
         <Hero>
-          <Search />
+          
         </Hero>
+        <Search />
+        {/* <card-holder /> */}
       </React.Fragment>
     )
   }

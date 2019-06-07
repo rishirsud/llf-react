@@ -1,0 +1,8 @@
+.container-fluid{
+    z-index: 15 !important;
+    margin-top: -12rem;
+}
+
+.resultContainerThing{
+    margin-top: 7rem;
+}
