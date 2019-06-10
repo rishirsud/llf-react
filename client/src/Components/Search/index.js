@@ -159,7 +159,9 @@ class Search extends Component {
             this.state.searchResult.map(result => {
               console.log(result);
               return (
-                <React.Fragment>
+                <React.Fragment
+                  key={`extraKey-${result._id}`}>
+
                   <SearchCards
                     key={result._id}
                     name={result.firstName}
@@ -177,6 +179,7 @@ class Search extends Component {
                   } */}
                   </SearchCards>
                   <SuperModal
+                    key={`key-${result._id}`}
                     id={result._id}
                     name={result.firstName}
                     location={result.location}
@@ -184,8 +187,12 @@ class Search extends Component {
                     psnID={result.psn}
                     xboxID={result.xbox}
                     nintendoID={result.nintendo}
-                    blizzardID={result.blizzard}>
-                  ></SuperModal>
+                    blizzardID={result.blizzard}
+                    gameOne={result.gameOne}
+                    gameTwo={result.gameTwo}
+                    gameThree={result.gameThree}
+                  >
+                    ></SuperModal>
                 </React.Fragment>
               )
             })

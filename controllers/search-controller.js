@@ -8,14 +8,17 @@ const getAllProfiles = function (req, res) {
   console.log("GETTING ALL PROFILES");
 
   db.User.find({}, {
-      firstName: 1,
-      location: 1,
-      steam: 1,
-      psn: 1,
-      xbox: 1,
-      nintendo: 1,
-      blizzard: 1
-    })
+    firstName: 1,
+    location: 1,
+    steam: 1,
+    psn: 1,
+    xbox: 1,
+    nintendo: 1,
+    blizzard: 1,
+    gameOne: 1,
+    gameTwo: 1,
+    gameThree: 1
+  })
     .then(function (dbUser) {
       res.json(dbUser);
     })
@@ -38,45 +41,66 @@ const searchAllProfile = function (req, res) {
   console.log(`looking for all`);
 
   db.User.find({
-      $or: [{
-          psn: {
-            $regex: search.psn,
-            $options: "$i"
-          }
-        },
-        {
-          steam: {
-            $regex: search.steam,
-            $options: '$i'
-          }
-        },
-        {
-          xbox: {
-            $regex: search.xbox,
-            $options: '$i'
-          }
-        },
-        {
-          nintendo: {
-            $regex: search.nintendo,
-            $options: '$i'
-          }
-        },
-        {
-          blizzard: {
-            $regex: search.blizzard,
-            $options: '$i'
-          }
-        },
-      ]
-    }, {
+    $or: [{
+      psn: {
+        $regex: search.psn,
+        $options: "$i"
+      }
+    },
+    {
+      steam: {
+        $regex: search.steam,
+        $options: '$i'
+      }
+    },
+    {
+      xbox: {
+        $regex: search.xbox,
+        $options: '$i'
+      }
+    },
+    {
+      nintendo: {
+        $regex: search.nintendo,
+        $options: '$i'
+      }
+    },
+    {
+      blizzard: {
+        $regex: search.blizzard,
+        $options: '$i'
+      }
+    },
+    {
+      gameOne: {
+        $regex: search.gameOne,
+        $options: '$i'
+      }
+    },
+    {
+      gameTwo: {
+        $regex: search.gameTwo,
+        $options: '$i'
+      }
+    },
+    {
+      gameThree: {
+        $regex: search.gameThree,
+        $options: '$i'
+      }
+    }
+    ]
+  }, {
       firstName: 1,
       location: 1,
       steam: 1,
       psn: 1,
       xbox: 1,
       nintendo: 1,
-      blizzard: 1
+      blizzard: 1,
+      gameOne: 1,
+      gameTwo: 1,
+      gameThree: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -98,16 +122,65 @@ const searchPSN = function (req, res) {
   // console.log(req.query);
 
   db.User.find({
-      $or: [{
-        psn: {
-          $regex: search,
-          $options: "$i"
-        }
-      }]
-    }, {
+    $or: [{
+      psn: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      steam: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      xbox: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      blizzard: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      nintendo: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      gameOne: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameTwo: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameThree: {
+        $regex: search,
+        $options: '$i'
+      }
+    }]
+  }, {
       firstName: 1,
       location: 1,
       psn: 1,
+      steam: 1,
+      xbox: 1,
+      blizzard: 1,
+      nintendo: 1,
+      gameOne: 1,
+      gameTwo: 1,
+      gameThree: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -129,16 +202,65 @@ const searchXbox = function (req, res) {
   // console.log("looking for psn Bob");
 
   db.User.find({
-      $or: [{
-        xbox: {
-          $regex: search,
-          $options: '$i'
-        }
-      }]
-    }, {
+    $or: [{
+      psn: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      steam: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      xbox: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      blizzard: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      nintendo: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      gameOne: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameTwo: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameThree: {
+        $regex: search,
+        $options: '$i'
+      }
+    }]
+  }, {
       firstName: 1,
       location: 1,
+      psn: 1,
+      steam: 1,
       xbox: 1,
+      blizzard: 1,
+      nintendo: 1,
+      gameOne: 1,
+      gameTwo: 1,
+      gameThree: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -159,16 +281,65 @@ const searchSteam = function (req, res) {
   console.log(`looking for psn ${search}`);
 
   db.User.find({
-      $or: [{
-        steam: {
-          $regex: search,
-          $options: '$i'
-        }
-      }]
-    }, {
+    $or: [{
+      psn: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      steam: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      xbox: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      blizzard: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      nintendo: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      gameOne: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameTwo: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameThree: {
+        $regex: search,
+        $options: '$i'
+      }
+    }]
+  }, {
       firstName: 1,
       location: 1,
+      psn: 1,
       steam: 1,
+      xbox: 1,
+      blizzard: 1,
+      nintendo: 1,
+      gameOne: 1,
+      gameTwo: 1,
+      gameThree: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -189,16 +360,65 @@ const searchNintendo = function (req, res) {
   console.log(`looking for nintendo ${search}`);
 
   db.User.find({
-      $or: [{
-        nintendo: {
-          $regex: search,
-          $options: '$i'
-        }
-      }]
-    }, {
+    $or: [{
+      nintendo: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      steam: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      xbox: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      blizzard: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      nintendo: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      gameOne: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameTwo: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameThree: {
+        $regex: search,
+        $options: '$i'
+      }
+    }]
+  }, {
       firstName: 1,
       location: 1,
+      psn: 1,
+      steam: 1,
+      xbox: 1,
+      blizzard: 1,
       nintendo: 1,
+      gameOne: 1,
+      gameTwo: 1,
+      gameThree: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -219,16 +439,65 @@ const searchBlizzard = function (req, res) {
   console.log(`looking for blizzard ${search}`);
 
   db.User.find({
-      $or: [{
-        blizzard: {
-          $regex: search,
-          $options: '$i'
-        }
-      }]
-    }, {
+    $or: [{
+      blizzard: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      steam: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      xbox: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      blizzard: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      nintendo: {
+        $regex: search,
+        $options: "$i"
+      }
+    },
+    {
+      gameOne: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameTwo: {
+        $regex: search,
+        $options: '$i'
+      }
+    },
+    {
+      gameThree: {
+        $regex: search,
+        $options: '$i'
+      }
+    }]
+  }, {
       firstName: 1,
       location: 1,
+      psn: 1,
+      steam: 1,
+      xbox: 1,
       blizzard: 1,
+      nintendo: 1,
+      gameOne: 1,
+      gameTwo: 1,
+      gameThree: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -238,7 +507,7 @@ const searchBlizzard = function (req, res) {
         console.log(err);
       }
     })
-} 
+}
 
 module.exports = {
   getAllProfiles,
