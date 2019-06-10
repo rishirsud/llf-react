@@ -4,7 +4,7 @@ import './style.css';
 
 function SearchCards(props)  {
   return (
-    <div className="col-12 col-md-3 col-sm-6">
+    <div className="col-12 col-md-6 col-lg-3">
     <div className="card">
       <div className="card-body">
         <ul className="list-group list-group-flush">

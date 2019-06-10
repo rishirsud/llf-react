@@ -108,6 +108,8 @@ const searchPSN = function (req, res) {
       firstName: 1,
       location: 1,
       psn: 1,
+      xbox: 1,
+      steam: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
