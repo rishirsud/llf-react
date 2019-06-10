@@ -21,6 +21,14 @@ $("#platform-select-menu a").click(function () {
       $('#search').on("click", searchSteam);
       break;
 
+    case "Nintendo":
+      $('#search').on("click", searchNintendo);
+      break;
+
+    case "Blizzard":
+      $('#search').on("click", searchBlizzard);
+      break;
+        
     default:
       console.log("nothing selected");
       break;
@@ -177,6 +185,42 @@ function searchSteam() {
     .then(searches => {
       console.log(searches);
       printSearch(searches, "steam")
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+function searchNintendo() {
+  let search = $("#search-user").val().trim();
+
+  console.log(search);
+
+  $.ajax({
+      url: '/api/search/nintendo?nintendo=' + search,
+      method: 'get',
+    })
+    .then(searches => {
+      console.log(searches);
+      printSearch(searches, "nintendo")
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+function searchBlizzard() {
+  let search = $("#search-user").val().trim();
+
+  console.log(search);
+
+  $.ajax({
+      url: '/api/search/blizzard?blizzard=' + search,
+      method: 'get',
+    })
+    .then(searches => {
+      console.log(searches);
+      printSearch(searches, "blizzard")
     })
     .catch(err => {
       console.log(err);

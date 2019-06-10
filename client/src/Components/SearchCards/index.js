@@ -14,14 +14,14 @@ function SearchCards(props) {
             <li className="list-group-item">Steam ID: {props.steamID}</li>
             <li className="list-group-item">PSN ID: {props.psnID}</li>
             <li className="list-group-item">Xbox ID: {props.xboxID}</li>
+            <li className="list-group-item">Nintendo ID: {props.nintendoID}</li>
+            <li className="list-group-item">Blizzard ID: {props.blizzardID}</li>
             <li type="link" class="list-group-item text-center" data-toggle="modal" data-target={`#modal-${props.id}`}>
               More Data
             </li>
           </ul>
         </div>
-
       </div>
-
     </div >
   )
 }
