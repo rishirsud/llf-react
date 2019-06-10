@@ -13,8 +13,8 @@ const getAllProfiles = function (req, res) {
       steam: 1,
       psn: 1,
       xbox: 1,
-      /* nintendo: 1,
-      blizzard: 1 */
+      nintendo: 1,
+      blizzard: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -56,7 +56,7 @@ const searchAllProfile = function (req, res) {
             $options: '$i'
           }
         },
-        /* {
+        {
           nintendo: {
             $regex: search.nintendo,
             $options: '$i'
@@ -67,7 +67,7 @@ const searchAllProfile = function (req, res) {
             $regex: search.blizzard,
             $options: '$i'
           }
-        }, */
+        },
       ]
     }, {
       firstName: 1,
@@ -75,8 +75,8 @@ const searchAllProfile = function (req, res) {
       steam: 1,
       psn: 1,
       xbox: 1,
-      /* nintendo: 1,
-      blizzard: 1 */
+      nintendo: 1,
+      blizzard: 1
     })
     .then(function (dbUser) {
       res.json(dbUser);
@@ -182,7 +182,7 @@ const searchSteam = function (req, res) {
     })
 }
 
-/* const searchNintendo = function (req, res) {
+const searchNintendo = function (req, res) {
 
   let db = require("../models");
 
@@ -240,7 +240,7 @@ const searchBlizzard = function (req, res) {
         console.log(err);
       }
     })
-}  */
+} 
 
 module.exports = {
   getAllProfiles,
@@ -248,6 +248,6 @@ module.exports = {
   searchPSN,
   searchXbox,
   searchSteam,
- /*  searchNintendo,
-  searchBlizzard */
+  searchNintendo,
+  searchBlizzard
 };

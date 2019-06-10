@@ -43,11 +43,11 @@ class Search extends Component {
       this.searchUser(platform, value)
     } else if (platform === "Xbox") {
       this.searchUser(platform, value)
-    } /* else if (platform === "Nintendo") {
+    } else if (platform === "Nintendo") {
       this.searchUser(platform, value)
     } else if (platform === "Blizzard") {
       this.searchUser(platform, value)
-    } */
+    }
 
   }
 
@@ -134,10 +134,8 @@ class Search extends Component {
                       <DropdownItem value="Steam" onClick={this.handlePlatformChange}>Steam</DropdownItem>
                       <DropdownItem value="PSN" onClick={this.handlePlatformChange}>PSN</DropdownItem>
                       <DropdownItem value="Xbox" onClick={this.handlePlatformChange}>XBL</DropdownItem>
-                      {/* <DropdownItem value="Nintendo" onClick={this.handlePlatformChange}>Nintendo</DropdownItem>
-                    <DropdownItem value="Blizzard" onClick={this.handlePlatformChange}>Blizzard</DropdownItem> */}
-
-
+                      <DropdownItem value="Nintendo" onClick={this.handlePlatformChange}>Nintendo</DropdownItem>
+                      <DropdownItem value="Blizzard" onClick={this.handlePlatformChange}>Blizzard</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                 </div>
@@ -170,6 +168,8 @@ class Search extends Component {
                     steamID={result.steam}
                     psnID={result.psn}
                     xboxID={result.xbox}
+                    nintendoID={result.nintendo}
+                    blizzardID={result.blizzard}
                     id={result._id}
                   >
 
@@ -184,6 +184,8 @@ class Search extends Component {
                     steamID={result.steam}
                     psnID={result.psn}
                     xboxID={result.xbox}
+                    nintendoID={result.nintendo}
+                    blizzardID={result.blizzard}>
                   ></SuperModal>
                 </React.Fragment>
               )

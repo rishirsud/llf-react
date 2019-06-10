@@ -10,12 +10,12 @@ function showProfileInfo() {
   const token = localStorage.getItem('accessToken');
 
   $.ajax({
-      url: '/api/user/profile',
-      method: 'get',
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    })
+    url: '/api/user/profile',
+    method: 'get',
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  })
     .then(userData => {
       $("#dropdownMenuOffset").text("Logged In");
       // console.log(userData);
@@ -25,6 +25,8 @@ function showProfileInfo() {
       let $steamID = $('#steamID');
       let $psnID = $('#psnID');
       let $xboxID = $('#xboxID');
+      let $nintendoID = $('#nintendoID');
+      let $blizzardID = $('#blizzardID');
 
       $firstName.val(userData.firstName);
       $profileEmail.val(userData.email);
@@ -32,7 +34,8 @@ function showProfileInfo() {
       $steamID.val(userData.steam);
       $psnID.val(userData.psn);
       $xboxID.val(userData.xbox);
-
+      $nintendoID.val(userData.nintendo);
+      $blizzardID.val(userData.blizzard);
     })
     .catch(err => {
       console.log(err);
@@ -40,38 +43,41 @@ function showProfileInfo() {
 }
 
 
-function updateProfile(updatedData){
-//holds user data
+function updateProfile(updatedData) {
+  //holds user data
   const token = localStorage.getItem('accessToken');
 
 
- const firstName = $("#firstName").val().trim();
- const location = $("#location").val().trim();
- const steam = $("#steamID").val().trim();
- const psn = $("#psnID").val().trim();
- const xbox = $("#xboxID").val().trim();
+  const firstName = $("#firstName").val().trim();
+  const location = $("#location").val().trim();
+  const steam = $("#steamID").val().trim();
+  const psn = $("#psnID").val().trim();
+  const xbox = $("#xboxID").val().trim();
+  const nintendo = $("#nintendoID").val().trim();
+  const blizzard = $("#blizzardID").val().trim();
 
- 
-$.ajax({
-  method: "PUT",
-  url: `/api/user/update`,
-  data: {
-    firstName: firstName,
-    location: location,
-    steam: steam,
-    psn: psn,
-    xbox: xbox
-  },
-  headers: {
-    authorization: `Bearer ${token}`
-  }
-})
-.then(res => {
-  console.log(res)
-})
-.catch(err => {
-  console.log(err)
-})
+  $.ajax({
+    method: "PUT",
+    url: `/api/user/update`,
+    data: {
+      firstName: firstName,
+      location: location,
+      steam: steam,
+      psn: psn,
+      xbox: xbox,
+      nintendo: nintendo,
+      blizzard: blizzard
+    },
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  })
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
 
 
@@ -85,7 +91,7 @@ $(document).ready(function () {
     $('.toast').toast('show');
     updateProfile()
   });
-  
+
   showProfileInfo();
 
 });

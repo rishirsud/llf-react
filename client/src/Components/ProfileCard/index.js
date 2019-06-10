@@ -13,8 +13,8 @@ class ProfileCard extends Component {
     steamID: "",
     psnID: "",
     xboxID: "",
-    nintendo: "",
-    blizzard: ""
+    nintendoID: "",
+    blizzardID: ""
   }
 
 
@@ -35,8 +35,8 @@ class ProfileCard extends Component {
           steamID: userData.data.steam,
           psnID: userData.data.psn,
           xboxID: userData.data.xbox,
-          nintendo: userData.data.nintendo,
-          blizzard: userData.data.blizzard
+          nintendoID: userData.data.nintendo,
+          blizzardID: userData.data.blizzard
         })
 
       })
@@ -68,8 +68,8 @@ class ProfileCard extends Component {
     const steamID = this.state.steamID;
     const psnID = this.state.psnID;
     const xboxID = this.state.xboxID;
-    const nintendo = this.state.nintendo;
-    const blizzard = this.state.blizzard;
+    const nintendoID = this.state.nintendoID;
+    const blizzardID = this.state.blizzardID;
 
 
     axios.put('/api/user/update/', {
@@ -82,8 +82,8 @@ class ProfileCard extends Component {
       steam: steamID,
       psn: psnID,
       xbox: xboxID,
-      nintendo: nintendo,
-      blizzard: blizzard
+      nintendo: nintendoID,
+      blizzard: blizzardID
     })
   }
 
@@ -201,7 +201,7 @@ class ProfileCard extends Component {
                           className="form-control" 
                           id="nintendoID" 
                           placeholder="Enter Nintendo"
-                          name="nintendo"
+                          name="nintendoID"
                           onChange={this.handleInputChange}
                           value={this.state.nintendo} />
                         </div>
@@ -210,7 +210,7 @@ class ProfileCard extends Component {
                           <input type="text" 
                           className="form-control" 
                           id="blizzard" 
-                          name="blizzard"
+                          name="blizzardID"
                           placeholder="Enter Blizzard ID"
                           onChange={this.handleInputChange}
                           value={this.state.blizzard} />

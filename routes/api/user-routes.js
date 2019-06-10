@@ -15,10 +15,9 @@ const {
 // GET user profile '/api/user/profile'
 router
   .route('/profile')
-  .get( withAuth, getUserProfile);
+  .get(withAuth, getUserProfile);
 
 // POST register user
-
 // http://localhost:3000/api/user/register
 router
   .route('/register')
