@@ -1,7 +1,7 @@
 # Long Lost Friends
 Find the gaming buddy you lost long ago
   
-## Technologies Used 
+## Technologies 
 - React
 - Node
 - MongoDB 
@@ -13,8 +13,10 @@ Find the gaming buddy you lost long ago
 * jsonwebtoken
 * Axios
 * Eslint 
+* ChatKit
+* ReactStrap
 
-## Contributors:
+## Contributors
 * Jonah Karew
 * Rishi Sud
 * Rishabh Goel
