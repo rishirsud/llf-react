@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import SearchCards from '../SearchCards';
+import SuperModal from '../SuperModal';
+
+
 import axios from 'axios';
-import './style.css'
+import './style.css';
 
 class Search extends Component {
 
@@ -84,6 +87,7 @@ class Search extends Component {
         console.log(response.data);
         // print card function here
         this.printStuff(response.data);
+        this.setState({ searchResult: response.data });
       })
       .catch((error) => {
         // handle error
@@ -153,20 +157,36 @@ class Search extends Component {
           <div className="row">{
 
             this.state.searchResult.map(result => {
+              console.log(result);
               return (
-                <SearchCards
-                  key={result.id}
-                  name={result.firstName}
-                  location={result.location}
-                  steamID={result.steam}
-                  psnID={result.psn}
-                  xboxID={result.xbox}
-                  nintendoID={result.nintendo}
-                  blizzardID={result.blizzard}>
-                  {
+                <React.Fragment>
+                  <SearchCards
+                    key={result._id}
+                    name={result.firstName}
+                    location={result.location}
+                    steamID={result.steam}
+                    psnID={result.psn}
+                    xboxID={result.xbox}
+                    nintendoID={result.nintendo}
+                    blizzardID={result.blizzard}
+                    id={result._id}
+                  >
+
+                    {/* {
                     console.log(this.state.searchResult.length)
-                  }
-                </SearchCards>
+                  } */}
+                  </SearchCards>
+                  <SuperModal
+                    id={result._id}
+                    name={result.firstName}
+                    location={result.location}
+                    steamID={result.steam}
+                    psnID={result.psn}
+                    xboxID={result.xbox}
+                    nintendoID={result.nintendo}
+                    blizzardID={result.blizzard}>
+                  ></SuperModal>
+                </React.Fragment>
               )
             })
 
@@ -174,7 +194,6 @@ class Search extends Component {
 
           </div>
         </div>
-
 
       </React.Fragment>
     );
