@@ -59,6 +59,7 @@ class ProfileCard extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     const email = this.state.email;
     const firstName = this.state.firstName;
     const location = this.state.location;
@@ -203,7 +204,7 @@ class ProfileCard extends Component {
                           placeholder="Enter Nintendo"
                           name="nintendoID"
                           onChange={this.handleInputChange}
-                          value={this.state.nintendo} />
+                          value={this.state.nintendoID} />
                         </div>
                         <div className="form-group">
                           <label htmlFor="blizzard">Blizzard ID* </label>
@@ -213,7 +214,7 @@ class ProfileCard extends Component {
                           name="blizzardID"
                           placeholder="Enter Blizzard ID"
                           onChange={this.handleInputChange}
-                          value={this.state.blizzard} />
+                          value={this.state.blizzardID} />
                         </div>
                       </div>
                     </div>
