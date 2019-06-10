@@ -154,6 +154,7 @@ class Search extends Component {
         {/* search results hopefully */}
 
         <div className="resultContainerThing">
+          <div className="container">
           <div className="row">{
 
             this.state.searchResult.map(result => {
@@ -198,7 +199,8 @@ class Search extends Component {
             })
 
           }
-
+          </div>
+            
           </div>
         </div>
 
