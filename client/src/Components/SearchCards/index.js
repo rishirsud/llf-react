@@ -3,7 +3,7 @@ import './style.css';
 
 
 function SearchCards(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="col-12 col-md-6 col-sm-6">
       <div className="card">
