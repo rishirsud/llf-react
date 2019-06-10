@@ -18,6 +18,26 @@ class RegisterForm extends Component {
     this.setState({password: event.target.value})
   };
 
+  delayedLogin = () => {
+    
+      axios.post('/api/user/login', {
+        email: this.state.email,
+        password: this.state.password
+      })
+        .then(token => {
+          console.log(token);
+          localStorage.setItem('accessToken', token);
+          // this.props.checkLogin()
+          localStorage.getItem('accesstoken')
+          window.location.assign('./profile');
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+     
+  }
+
+
  handleSubmit = (event) => {
    event.preventDefault(event);
   //  console.log(this.state.email, this.state.password);
@@ -26,7 +46,9 @@ class RegisterForm extends Component {
    axios.post('/api/user/register', {
      email: email,
      password: password
-   })
+   }).then(
+    setTimeout(this.delayedLogin, 500)
+   )
 
   //  auto login the user on register
  }
@@ -36,7 +58,7 @@ class RegisterForm extends Component {
   return (
     <div className="container" id="profileContainer">
     <div className="row">
-      <div className="col-lg-5 col-12 my-3 mx-auto">
+      <div className="col-12 col-lg-5  my-3 mx-auto">
          <div className="card" style={{width: "30rem"}}>
         <form action="">
           <div className="card">
