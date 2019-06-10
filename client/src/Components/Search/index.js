@@ -34,7 +34,7 @@ class Search extends Component {
     const platform = this.state.platform;
     const value = this.state.value;
 
-    console.log('Searching for: ' + value);
+    // console.log('Searching for: ' + value);
     if (platform === "All") {
       this.getAll(value)
     } else if (platform === "Steam") {
@@ -64,8 +64,8 @@ class Search extends Component {
 
     axios.get(`/api/search/${lowerPlatform}?${lowerPlatform}=${query}`)
       .then((response) => {
-        console.log(response.data);
-        this.printStuff(response.data);
+        // console.log(response.data);
+        // this.printStuff(response.data);
         this.setState({ searchResult: response.data })
       })
       .catch((error) => {
@@ -84,9 +84,9 @@ class Search extends Component {
 
     axios.get('/api/all')
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         // print card function here
-        this.printStuff(response.data);
+        // this.printStuff(response.data);
         this.setState({ searchResult: response.data });
       })
       .catch((error) => {
@@ -99,16 +99,16 @@ class Search extends Component {
   }
 
 
-  printStuff = (arr) => {
-    arr.forEach(result => {
-      console.log(result);
+  // printStuff = (arr) => {
+  //   arr.forEach(result => {
+  //     // console.log(result);
 
-    });
-  }
+  //   });
+  // }
 
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <React.Fragment>
         <div className="container-fluid">
@@ -158,9 +158,11 @@ class Search extends Component {
           <div className="row">{
 
             this.state.searchResult.map(result => {
-              console.log(result);
+              // console.log(result);
               return (
-                <React.Fragment>
+                <React.Fragment
+                  key={`extraKey-${result._id}`}>
+
                   <SearchCards
                     key={result._id}
                     name={result.firstName}
@@ -178,6 +180,7 @@ class Search extends Component {
                   } */}
                   </SearchCards>
                   <SuperModal
+                    key={`key-${result._id}`}
                     id={result._id}
                     name={result.firstName}
                     location={result.location}
@@ -185,8 +188,12 @@ class Search extends Component {
                     psnID={result.psn}
                     xboxID={result.xbox}
                     nintendoID={result.nintendo}
-                    blizzardID={result.blizzard}>
-                  ></SuperModal>
+                    blizzardID={result.blizzard}
+                    gameOne={result.gameOne}
+                    gameTwo={result.gameTwo}
+                    gameThree={result.gameThree}
+                  >
+                    ></SuperModal>
                 </React.Fragment>
               )
             })
