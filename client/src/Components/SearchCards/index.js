@@ -2,9 +2,10 @@ import React from 'react';
 import './style.css';
 
 
-function SearchCards(props)  {
+function SearchCards(props) {
+  console.log(props);
   return (
-    <div className="col-12 col-md-6 col-lg-3">
+    <div className="col-12 col-md-6 col-lg-4">
     <div className="card">
       <div className="card-body">
         <ul className="list-group list-group-flush">
@@ -16,7 +17,7 @@ function SearchCards(props)  {
         </ul>
       </div>
     </div>
-    </div>
+    </div >
   )
 }
 
